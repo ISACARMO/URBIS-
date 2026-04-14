@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Protótipo Urbis+</title>
+<style>
+ body { font-family: Arial, sans-serif; background:#f4f4f4; text-align:center; }
+ .screen { display:none; padding:40px; }
+ .active { display:block; }
+ .box { border:2px solid #555; padding:20px; margin:20px auto; width:300px; border-radius:12px; background:white; }
+ button { padding:10px 20px; margin-top:15px; font-size:16px; }
+</style>
+<script>
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</head>
+<body>
+<h1>Protótipo Navegável – Urbis+</h1>
+
+<div id="login" class="screen active box">
+ <h2>Login</h2>
+ <p>Número de contrato</p>
+ <input type="text"/><br>
+ <p>Palavra‑passe</p>
+ <input type="password"/><br>
+ <button onclick="show('home')">Entrar</button>
+</div>
+
+<div id="home" class="screen box">
+ <h2>Home</h2>
+ <p>Última leitura: ---</p>
+ <button onclick="show('comunicar')">Comunicar nova leitura</button><br><br>
+ <button onclick="show('historico')">Histórico</button>
+ <button onclick="show('perfil')">Perfil</button>
+</div>
+
+<div id="comunicar" class="screen box">
+ <h2>Comunicar Leitura</h2>
+ <p>Valor:</p><input type="number"/><br><br>
+ <button onclick="show('confirmacao')">Enviar</button>
+</div>
+
+<div id="confirmacao" class="screen box">
+ <h2>Confirmação</h2>
+ <p>Leitura enviada com sucesso!</p>
+ <button onclick="show('home')">Voltar à Home</button>
+</div>
+
+<div id="historico" class="screen box">
+ <h2>Histórico</h2>
+ <p>• Leitura 1<br>• Leitura 2<br>• Leitura 3</p>
+ <button onclick="show('home')">Voltar</button>
+</div>
+
+<div id="perfil" class="screen box">
+ <h2>Perfil</h2>
+ <p>Dados e notificações</p>
+ <button onclick="show('home')">Voltar</button>
+</div>
+
+</body></html>
